@@ -53,5 +53,15 @@ app.get('/api',(req,res)=>{
 })
 
 
+app.get('/api/:field/:term',(req,res)=>{
+  let filteredData = startups
+  const {field,term} = req.params
+  filteredData = filteredData.filter(obj=>obj[field].toLowerCase()===term.toLowerCase())
+  res.json(filteredData)
+})
+
+
+
+
 
 
